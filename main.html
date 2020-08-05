@@ -1,0 +1,116 @@
+<html>
+<head>
+	
+<script src="version.js"></script>
+
+<title>technical documentation</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body bgcolor="#ffffff" leftmargin="50" rightmargin="50" topmargin="50" bottommargin="50">
+
+	<center>
+	
+	<table width="100%" height="100%" border="0">
+		<!--
+  <tr height="15%">
+    <th colspan="8" scope="col" width="100%"><div align="left"><a href="Javascript: check_update();"><img src="images_idx/check.jpg" border="0"></a></div></th>
+    <th scope="col" width="100%"><div align="right"><img src="images_idx/help.jpg" width="84" height="27"></div></th>
+  </tr>
+  <tr>
+  -->
+    <td height="100%" colspan="8" width="100%"><div align="center"><img src="images_idx/txtmain.jpg"></div></td>
+  </tr>
+  <tr height="100%" >
+
+<!--
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/ita/main_ita.html"><img src="images_idx/flag_ita.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/en/main_en.html"><img src="images_idx/flag_en.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/de/main_de.html"><img src="images_idx/flag_ted.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/fr/main_fr.html"><img src="images_idx/flag_fra.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/es/main_es.html"><img src="images_idx/flag_esp.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/pt/main_pt.html"><img src="images_idx/flag_por.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/usa/main_usa.html"><img src="images_idx/flag_usa.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="wsm/jp/main_jp.html"><img src="images_idx/flag_jap.jpg"  border="0"></a></div></td>
+    <td width="11.1%" rowspan="2" ><img src="images_idx/logo_low.jpg" width="160" height="99"></td>
+-->
+
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/ita/main_ita.html', 0);"><img src="images_idx/flag_ita.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/en/main_en.html', 1);"><img src="images_idx/flag_en.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/de/main_de.html', 3);"><img src="images_idx/flag_ted.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/fr/main_fr.html', 2);"><img src="images_idx/flag_fra.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/es/main_es.html', 4);"><img src="images_idx/flag_esp.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/pt/main_pt.html', 5);"><img src="images_idx/flag_por.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/usa/main_usa.html', 99);"><img src="images_idx/flag_usa.jpg" border="0"></a></div></td>
+    <td width="11.1%" valign=top><div align="center"><a href="Javascript: go_page('wsm/jp/main_jp.html', 6);"><img src="images_idx/flag_jap.jpg"  border="0"></a></div></td>
+   <!--
+    <td width="11.1%" rowspan="2" ><img src="images_idx/logo_low.jpg" width="160" height="99"></td>
+		-->
+  </tr>
+  <tr height="100%" >
+    <td colspan="8">&nbsp;</td>
+  </tr>
+</table>
+
+	
+	
+</center>
+	
+	
+</body>
+
+<script>
+
+function check_update() {
+	window.location = "http://www.pirazworks.com/ducati_updates/index.php?cat=" + cat_codice + "&cat_v=" + cat_versione;
+}
+
+
+function go_page(s, lingua_num) {
+	SetLingua(lingua_num);
+	document.location = s;
+}
+
+
+function SetLingua(x) {
+	var		lingua;
+	var		lingua_str;
+	var		lingua_domain;
+
+	lingua = x;
+	
+	switch(x) {
+		case 0:		lingua_str = "ita";	lingua_domain = "ita";	break;	
+		case 1:		lingua_str = "ing";	lingua_domain = "en";	break;	
+		case 2:		lingua_str = "fra";	lingua_domain = "fr";	break;	
+		case 3:		lingua_str = "ted";	lingua_domain = "de";	break;	
+		case 4:		lingua_str = "spa";	lingua_domain = "es";	break;	
+		case 5:		lingua_str = "ing";	lingua_domain = "pt";	lingua=1;	break;	
+		case 6:		lingua_str = "ing";	lingua_domain = "jp";	lingua=1;	break;	
+		case 99:	lingua_str = "ing";	lingua_domain = "usa";	lingua=1;	break;	
+	}
+	
+	setVar("lingua", lingua);
+	setVar("lingua_str", lingua_str);
+	setVar("lingua_domain", lingua_domain);
+}
+
+
+function setVar(name, value) {
+	var today = new Date();
+	var expires = new Date();
+	expires.setTime(today.getTime() + 1000*60*60*24*365);
+
+	setCookie(name, value, expires);
+}
+
+
+function setCookie(name, value, expire) {
+	var		s = name + "=" + escape(value) + ((expire == null) ? ";" : ("; expires=" + expire.toGMTString()));
+	
+	document.cookie = s;
+}
+
+</script>
+
+</html>
